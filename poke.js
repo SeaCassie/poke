@@ -12,6 +12,7 @@ $(function () {
                  number=Math.floor(Math.random()*13+1);
             }
             poke.push({color,number});
+            console.log(poke)
             flag[color+"_"+number]=true;
         }
 
@@ -33,15 +34,16 @@ $(function () {
             }
         }
 
-        for (;index<52;index++){
-            if (index<48) {
+        for (;index<51;index++){
+            if (index<46) {
             let obj=poke[index];
             $("<div>").addClass("hot left").html("").css({backgroundImage:`url(./image/${obj.number}${obj.color}.jpg)`}).appendTo(".box") .attr("id",index)
                 .data("number",obj.number)
                 .delay(index*100)
                 .animate({left:0,top:580,opacity:1});
             }else{
-                let lefts=100*(53-index);
+                let lefts=100*(53-index)*(-1)+1200;
+                console.log(lefts)
                 let obj=poke[index];
                 $("<div>").addClass("hot right").html("").css({backgroundImage:`url(./image/${obj.number}${obj.color}.jpg)`}).appendTo(".box") .attr("id",index)
                     .data("number",obj.number)
@@ -130,6 +132,8 @@ $(function () {
             }
 
     })
+    console.log($(".box").children());
+
     function GPS1(name) {
         lefts=name.position().left;
         tops=name.position().top+30;
