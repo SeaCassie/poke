@@ -132,7 +132,7 @@ $(function () {
             }
 
     })
-    console.log($(".box").children());
+    console.log($(".box").children().attr("img"));
 
     function GPS1(name) {
         lefts=name.position().left;
